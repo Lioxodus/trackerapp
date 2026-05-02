@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DropIQ | Fortnite Performance Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <div class="gamebar">
+      <div class="game-logo">DropIQ</div>
+      <div class="game-tabs">
+        <span class="active">Fortnite</span>
+        <span>Competitive</span>
+        <span>Replay AI</span>
+        <span>Coaching</span>
+        <span>Leaderboards</span>
+      </div>
+      <button class="premium-btn">Get Pro</button>
+    </div>
+
+    <header class="navbar">
+      <div class="left-nav">
+        <div class="fn-box">D</div>
+        <div class="mini-search">Search</div>
+      </div>
+      <nav>
+        <a class="active" href="index.html">Home</a>
+        <a href="dashboard.html">Tracker</a>
+        <a href="analysis.html">Analysis</a>
+        <a href="replay.html">Replay AI</a>
+        <a href="#">Support</a>
+      </nav>
+      <button class="login-btn">Sign In</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-inner">
+          <h1>FIND YOUR FORTNITE PERFORMANCE</h1>
+          <div class="main-search">
+            <input id="epicName" type="text" placeholder="Enter your EPIC name..." />
+            <button onclick="goTracker()">➜</button>
+          </div>
+          <p>
+            Search by Epic name and get your stats, weakness detection and improvement plan.
+          </p>
+          <button class="epic-btn">Sign in with Epic Games</button>
+          <div class="tracking-line">Tracking example players · Stats · Coaching · Replay AI</div>
+        </div>
+      </section>
+
+      <section class="ranking-cards">
+        <div class="rank-card yellow">
+          <div class="rank-head">
+            <b>2026 POWER RANK</b>
+            <span>View All</span>
+          </div>
+          <div class="rank-body">
+            <div class="avatar">D</div>
+            <div>
+              <strong>DropIQ Rating</strong>
+              <p>Skill Score 87,531</p>
+            </div>
+            <em>#1</em>
+          </div>
+        </div>
+
+        <div class="rank-card blue">
+          <div class="rank-head">
+            <b>SEASON SOLO WINS</b>
+            <span>View All</span>
+          </div>
+          <div class="rank-body">
+            <div class="avatar bluea">F</div>
+            <div>
+              <strong>FelixFN</strong>
+              <p>W 1,444</p>
+            </div>
+            <em>#1</em>
+          </div>
+        </div>
+
+        <div class="rank-card purple">
+          <div class="rank-head">
+            <b>RANKED BATTLE ROYALE</b>
+            <span>View All</span>
+          </div>
+          <div class="rank-body">
+            <div class="avatar purplea">Z</div>
+            <div>
+              <strong>ZoneKing</strong>
+              <p>#1 Champion</p>
+            </div>
+            <em>#1</em>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <div class="main-column">
+          <h2>PERFORMANCE NEWS</h2>
+
+          <article class="news-card">
+            <div class="news-img gradient-one"></div>
+            <div>
+              <h3>DropIQ analyzes your Fortnite stats and finds your biggest weakness</h3>
+              <p>See if your problem is Aim, Rotation, Fighting, Endgame or Game Sense.</p>
+              <a href="analysis.html">Read More</a>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <div class="news-img gradient-two"></div>
+            <div>
+              <h3>Replay AI is planned for future gameplay reviews</h3>
+              <p>Upload your gameplay later and get a breakdown of your decisions.</p>
+              <a href="replay.html">Read More</a>
+            </div>
+          </article>
+        </div>
+
+        <aside class="side-column">
+          <h2>PLAYER SNAPSHOT</h2>
+          <div class="snapshot">
+            <div class="snapshot-top">
+              <div class="big-avatar">F</div>
+              <div>
+                <h3>FelixFN</h3>
+                <p>PC · Champion · Last 30 Days</p>
+              </div>
+            </div>
+            <div class="mini-stats">
+              <div><span>K/D</span><b>2.18</b></div>
+              <div><span>Wins</span><b>42</b></div>
+              <div><span>Winrate</span><b>9.4%</b></div>
+              <div><span>Score</span><b>78</b></div>
+            </div>
+            <a class="full-btn" href="dashboard.html">Open Dashboard</a>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
