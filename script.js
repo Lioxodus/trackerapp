@@ -1,15 +1,12 @@
-function openTracker() {
+function goTracker(){
   const input = document.getElementById("epicName");
   const name = input && input.value.trim() ? input.value.trim() : "FelixFN";
-  localStorage.setItem("dropiq_player_name", name);
+  localStorage.setItem("dropiq_name", name);
   window.location.href = "dashboard.html";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const playerName = document.getElementById("playerName");
-  const savedName = localStorage.getItem("dropiq_player_name");
-
-  if (playerName && savedName) {
-    playerName.textContent = savedName;
-  }
+  const name = localStorage.getItem("dropiq_name");
+  const dashName = document.getElementById("dashName");
+  if (name && dashName) dashName.textContent = name;
 });
