@@ -3,149 +3,121 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DropIQ | Fortnite Performance Tracker</title>
+  <title>DropIQ | Fortnite Coaching Tracker</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="app">
 
-    <div class="gamebar">
-      <div class="game-logo">DropIQ</div>
-      <div class="game-tabs">
-        <span class="active">Fortnite</span>
-        <span>Competitive</span>
-        <span>Replay AI</span>
-        <span>Coaching</span>
-        <span>Leaderboards</span>
+<header class="site-header">
+  <a class="logo" href="index.html">
+    <div class="logo-icon">D</div>
+    <div>
+      <h1>DropIQ</h1>
+      <span>Fortnite Performance Tracker</span>
+    </div>
+  </a>
+
+  <nav>
+    <a href="index.html" class="active">Start</a>
+    <a href="dashboard.html">Tracker</a>
+    <a href="analysis.html">Analyse</a>
+    <a href="replay.html">Replay AI</a>
+  </nav>
+
+  <button class="login-button" onclick="demoLogin()">Epic Login</button>
+</header>
+
+<main>
+  <section class="hero main-hero">
+    <div class="hero-content">
+      <p class="eyebrow">TRACKEN · ANALYSIEREN · VERBESSERN</p>
+      <h2>Finde heraus, warum du deine Games verlierst.</h2>
+      <p class="hero-text">
+        DropIQ soll deine Fortnite-Stats nicht nur anzeigen, sondern erklären.
+        Du siehst, wo du gut bist, wo du Fehler machst und woran du als Nächstes arbeiten solltest.
+      </p>
+
+      <div class="search-panel">
+        <label>Epic Games Name</label>
+        <div class="search-row">
+          <input id="epicName" type="text" placeholder="z.B. FelixFN" />
+          <button onclick="openTracker()">Stats anzeigen</button>
+        </div>
+        <small>Demo-Version: Account-Suche und echte Stats kommen später. Aktuell werden Beispielwerte genutzt.</small>
       </div>
-      <button class="premium-btn">Get Pro</button>
     </div>
 
-    <header class="navbar">
-      <div class="left-nav">
-        <div class="fn-box">D</div>
-        <div class="mini-search">Search</div>
+    <div class="hero-card">
+      <div class="status-pill free">FREE ANALYSE</div>
+      <h3>Player Snapshot</h3>
+      <div class="demo-player">
+        <div class="player-avatar">F</div>
+        <div>
+          <strong>FelixFN</strong>
+          <span>PC · Ranked · Last 30 Days</span>
+        </div>
       </div>
-      <nav>
-        <a class="active" href="index.html">Home</a>
-        <a href="dashboard.html">Tracker</a>
-        <a href="analysis.html">Analysis</a>
-        <a href="replay.html">Replay AI</a>
-        <a href="#">Support</a>
-      </nav>
-      <button class="login-btn">Sign In</button>
-    </header>
 
-    <main>
-      <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-inner">
-          <h1>FIND YOUR FORTNITE PERFORMANCE</h1>
-          <div class="main-search">
-            <input id="epicName" type="text" placeholder="Enter your EPIC name..." />
-            <button onclick="goTracker()">➜</button>
-          </div>
-          <p>
-            Search by Epic name and get your stats, weakness detection and improvement plan.
-          </p>
-          <button class="epic-btn">Sign in with Epic Games</button>
-          <div class="tracking-line">Tracking example players · Stats · Coaching · Replay AI</div>
-        </div>
-      </section>
+      <div class="demo-stats">
+        <div><span>K/D</span><b>2.18</b></div>
+        <div><span>Wins</span><b>42</b></div>
+        <div><span>Winrate</span><b>9.4%</b></div>
+        <div><span>Score</span><b>78</b></div>
+      </div>
+    </div>
+  </section>
 
-      <section class="ranking-cards">
-        <div class="rank-card yellow">
-          <div class="rank-head">
-            <b>2026 POWER RANK</b>
-            <span>View All</span>
-          </div>
-          <div class="rank-body">
-            <div class="avatar">D</div>
-            <div>
-              <strong>DropIQ Rating</strong>
-              <p>Skill Score 87,531</p>
-            </div>
-            <em>#1</em>
-          </div>
-        </div>
+  <section class="info-strip">
+    <div>
+      <b>01</b>
+      <h3>Stats eingeben</h3>
+      <p>Epic-Namen eingeben und Dashboard öffnen.</p>
+    </div>
+    <div>
+      <b>02</b>
+      <h3>Free Analyse</h3>
+      <p>Aim, Rotation, Fights und Endgame bewerten.</p>
+    </div>
+    <div>
+      <b>03</b>
+      <h3>Pro Replay AI</h3>
+      <p>Videoanalyse später nur mit Abo nutzbar.</p>
+    </div>
+  </section>
 
-        <div class="rank-card blue">
-          <div class="rank-head">
-            <b>SEASON SOLO WINS</b>
-            <span>View All</span>
-          </div>
-          <div class="rank-body">
-            <div class="avatar bluea">F</div>
-            <div>
-              <strong>FelixFN</strong>
-              <p>W 1,444</p>
-            </div>
-            <em>#1</em>
-          </div>
-        </div>
+  <section class="section">
+    <div class="section-title">
+      <p class="eyebrow">DAS KONZEPT</p>
+      <h2>Kein normaler Tracker.</h2>
+      <p>
+        Viele Seiten zeigen nur Zahlen. DropIQ soll dir erklären, was diese Zahlen bedeuten
+        und was du konkret trainieren solltest.
+      </p>
+    </div>
 
-        <div class="rank-card purple">
-          <div class="rank-head">
-            <b>RANKED BATTLE ROYALE</b>
-            <span>View All</span>
-          </div>
-          <div class="rank-body">
-            <div class="avatar purplea">Z</div>
-            <div>
-              <strong>ZoneKing</strong>
-              <p>#1 Champion</p>
-            </div>
-            <em>#1</em>
-          </div>
-        </div>
-      </section>
+    <div class="cards">
+      <article class="card">
+        <h3>📊 Core Stats</h3>
+        <p>Wins, K/D, Winrate, Matches, Kills und durchschnittliche Platzierung.</p>
+      </article>
 
-      <section class="content-grid">
-        <div class="main-column">
-          <h2>PERFORMANCE NEWS</h2>
+      <article class="card">
+        <h3>🧠 Free Analyse</h3>
+        <p>Stärken, Schwächen und Verbesserungsbereiche ohne Abo.</p>
+      </article>
 
-          <article class="news-card">
-            <div class="news-img gradient-one"></div>
-            <div>
-              <h3>DropIQ analyzes your Fortnite stats and finds your biggest weakness</h3>
-              <p>See if your problem is Aim, Rotation, Fighting, Endgame or Game Sense.</p>
-              <a href="analysis.html">Read More</a>
-            </div>
-          </article>
+      <article class="card premium-border">
+        <h3>🤖 Replay AI Pro</h3>
+        <p>Gameplay hochladen und KI-Videoanalyse erhalten. Später als Premium-Feature.</p>
+      </article>
+    </div>
+  </section>
+</main>
 
-          <article class="news-card">
-            <div class="news-img gradient-two"></div>
-            <div>
-              <h3>Replay AI is planned for future gameplay reviews</h3>
-              <p>Upload your gameplay later and get a breakdown of your decisions.</p>
-              <a href="replay.html">Read More</a>
-            </div>
-          </article>
-        </div>
+<footer>
+  <p>© DropIQ · Fortnite Coaching Tracker Konzept</p>
+</footer>
 
-        <aside class="side-column">
-          <h2>PLAYER SNAPSHOT</h2>
-          <div class="snapshot">
-            <div class="snapshot-top">
-              <div class="big-avatar">F</div>
-              <div>
-                <h3>FelixFN</h3>
-                <p>PC · Champion · Last 30 Days</p>
-              </div>
-            </div>
-            <div class="mini-stats">
-              <div><span>K/D</span><b>2.18</b></div>
-              <div><span>Wins</span><b>42</b></div>
-              <div><span>Winrate</span><b>9.4%</b></div>
-              <div><span>Score</span><b>78</b></div>
-            </div>
-            <a class="full-btn" href="dashboard.html">Open Dashboard</a>
-          </div>
-        </aside>
-      </section>
-    </main>
-  </div>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

@@ -7,39 +7,66 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="app">
-    <div class="gamebar">
-      <div class="game-logo">DropIQ</div>
-      <div class="game-tabs"><span class="active">Replay AI</span><span>Review</span><span>Coaching</span></div>
-      <button class="premium-btn">Get Pro</button>
+
+<header class="site-header">
+  <a class="logo" href="index.html">
+    <div class="logo-icon">D</div>
+    <div>
+      <h1>DropIQ</h1>
+      <span>Replay AI Pro</span>
     </div>
-    <header class="navbar">
-      <div class="left-nav"><div class="fn-box">D</div><div class="mini-search">Search</div></div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="dashboard.html">Tracker</a>
-        <a href="analysis.html">Analysis</a>
-        <a class="active" href="replay.html">Replay AI</a>
-      </nav>
-      <button class="login-btn">Sign In</button>
-    </header>
+  </a>
 
-    <main class="page-wrap">
-      <section class="replay-section">
-        <h1>Replay AI Coming Soon</h1>
-        <p>Später sollst du dein Gameplay hochladen können. DropIQ analysiert Landing, Fights, Rotation, Endgame und Entscheidungen.</p>
-        <div class="upload-area">
-          <b>Upload Replay</b>
-          <span>Feature geplant · noch nicht aktiv</span>
-        </div>
-      </section>
+  <nav>
+    <a href="index.html">Start</a>
+    <a href="dashboard.html">Tracker</a>
+    <a href="analysis.html">Analyse</a>
+    <a href="replay.html" class="active">Replay AI</a>
+  </nav>
 
-      <section class="training-grid">
-        <div class="train-card"><h2>Landing</h2><p>War dein Drop schnell genug? War dein Spot sinnvoll?</p></div>
-        <div class="train-card"><h2>Fights</h2><p>Peeks, Aim, Edit-Timing, 50/50s und Push-Entscheidungen.</p></div>
-        <div class="train-card"><h2>Endgame</h2><p>Positioning, Mats, Highground und Zone-Entscheidungen.</p></div>
-      </section>
-    </main>
-  </div>
+  <button class="login-button" onclick="demoLogin()">Epic Login</button>
+</header>
+
+<main>
+  <section class="sub-hero premium-hero">
+    <div>
+      <p class="eyebrow">PRO FEATURE</p>
+      <h2>Replay AI Videoanalyse</h2>
+      <p>Replay Upload ist nur möglich, wenn du mit Epic verbunden bist. Die KI-Videoanalyse ist später nur mit Abo nutzbar.</p>
+    </div>
+    <div class="sub-hero-box premium-box">
+      <span>Replay AI</span>
+      <strong>Pro</strong>
+      <button onclick="demoPro()">Pro Demo aktivieren</button>
+    </div>
+  </section>
+
+  <section class="page">
+
+    <section id="replayGate" class="replay-gate">
+      <!-- Wird per JavaScript gefüllt -->
+    </section>
+
+    <section class="cards">
+      <article class="card">
+        <h3>Landing Analyse</h3>
+        <p>War dein Drop schnell genug? War dein Loot-Weg sinnvoll?</p>
+      </article>
+
+      <article class="card">
+        <h3>Fight Analyse</h3>
+        <p>Peeks, Aim, Edits, Pushes und unnötige 50/50-Fights.</p>
+      </article>
+
+      <article class="card">
+        <h3>Endgame Analyse</h3>
+        <p>Positioning, Mats, Highground und Entscheidungen in der letzten Zone.</p>
+      </article>
+    </section>
+
+  </section>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>

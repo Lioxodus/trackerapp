@@ -3,64 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DropIQ | Analysis</title>
+  <title>DropIQ | Analyse</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="app">
-    <div class="gamebar">
-      <div class="game-logo">DropIQ</div>
-      <div class="game-tabs"><span class="active">Analysis</span><span>Training</span><span>Coaching</span></div>
-      <button class="premium-btn">Get Pro</button>
+
+<header class="site-header">
+  <a class="logo" href="index.html">
+    <div class="logo-icon">D</div>
+    <div>
+      <h1>DropIQ</h1>
+      <span>Free Analyse & Training</span>
     </div>
-    <header class="navbar">
-      <div class="left-nav"><div class="fn-box">D</div><div class="mini-search">Search</div></div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="dashboard.html">Tracker</a>
-        <a class="active" href="analysis.html">Analysis</a>
-        <a href="replay.html">Replay AI</a>
-      </nav>
-      <button class="login-btn">Sign In</button>
-    </header>
+  </a>
 
-    <main class="page-wrap">
-      <section class="title-block">
-        <h1>Improvement Plan</h1>
-        <p>DropIQ zeigt dir nicht nur, dass etwas schlecht ist, sondern was du konkret trainieren sollst.</p>
-      </section>
+  <nav>
+    <a href="index.html">Start</a>
+    <a href="dashboard.html">Tracker</a>
+    <a href="analysis.html" class="active">Analyse</a>
+    <a href="replay.html">Replay AI</a>
+  </nav>
 
-      <section class="training-grid">
-        <div class="train-card priority">
-          <small>PRIORITY 1</small>
-          <h2>Endgame</h2>
-          <p>Trainiere Zone Wars, Mats-Management und Positioning. Du kommst oft weit, gewinnst aber zu wenig Spiele.</p>
-        </div>
-        <div class="train-card">
-          <small>PRIORITY 2</small>
-          <h2>Rotation</h2>
-          <p>Früher in die Zone planen. Weniger offene Wege laufen. Mehr Cover und bessere Timing-Entscheidungen.</p>
-        </div>
-        <div class="train-card">
-          <small>PRIORITY 3</small>
-          <h2>Fight IQ</h2>
-          <p>Nicht jeden Fight nehmen. Erst Damage-Vorteil suchen, dann pushen.</p>
-        </div>
-      </section>
+  <button class="login-button" onclick="demoLogin()">Epic Login</button>
+</header>
 
-      <section class="panel">
-        <h2>7-Day Training Plan</h2>
-        <div class="plan">
-          <div><b>Day 1</b><span>Aim Training + Realistics</span></div>
-          <div><b>Day 2</b><span>Edit Speed with floor/cone focus</span></div>
-          <div><b>Day 3</b><span>Rotation Review</span></div>
-          <div><b>Day 4</b><span>Endgame Zone Wars</span></div>
-          <div><b>Day 5</b><span>Ranked with early rotation focus</span></div>
-          <div><b>Day 6</b><span>Replay Review</span></div>
-          <div><b>Day 7</b><span>Compare old stats with new stats</span></div>
-        </div>
-      </section>
-    </main>
-  </div>
+<main>
+  <section class="sub-hero">
+    <div>
+      <p class="eyebrow">FREE ANALYSE</p>
+      <h2>Verbessere dein Gameplay gezielt.</h2>
+      <p>Diese Analyse bleibt kostenlos. Sie zeigt dir, woran du arbeiten solltest.</p>
+    </div>
+    <div class="sub-hero-box">
+      <span>Preis</span>
+      <strong>Free</strong>
+      <p>Stats + Schwächen + Trainingsplan</p>
+    </div>
+  </section>
+
+  <section class="page">
+
+    <section class="cards">
+      <article class="card priority">
+        <p class="eyebrow">PRIORITÄT 1</p>
+        <h3>Endgame</h3>
+        <p>Trainiere Zone Wars, Positioning, Mats-Management und Entscheidungen unter Druck.</p>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">PRIORITÄT 2</p>
+        <h3>Rotation</h3>
+        <p>Plane früher, nutze Cover besser und rotiere nicht erst, wenn die Zone dich zwingt.</p>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">PRIORITÄT 3</p>
+        <h3>Fight IQ</h3>
+        <p>Nimm weniger unnötige 50/50-Fights und suche zuerst Damage-Vorteile.</p>
+      </article>
+    </section>
+
+    <section class="panel training-panel">
+      <div class="panel-head">
+        <h3>7-Tage Trainingsplan</h3>
+        <span class="status-pill free">FREE</span>
+      </div>
+
+      <div class="training-list">
+        <div><b>Tag 1</b><span>Aim Training + Realistics</span></div>
+        <div><b>Tag 2</b><span>Edit-Speed mit Dach/Boden Fokus</span></div>
+        <div><b>Tag 3</b><span>Rotationen in eigenen Replays anschauen</span></div>
+        <div><b>Tag 4</b><span>Zone Wars für Endgame</span></div>
+        <div><b>Tag 5</b><span>Ranked Games mit Fokus auf sichere Rotation</span></div>
+        <div><b>Tag 6</b><span>Replay Review und Fehler notieren</span></div>
+        <div><b>Tag 7</b><span>Stats vergleichen und neuen Fokus setzen</span></div>
+      </div>
+    </section>
+
+  </section>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>
