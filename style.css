@@ -9,3 +9,12 @@
 .stat{min-height:118px}
 #noPlayerGate{margin-bottom:24px}
 @media(max-width:980px){.page-hero{padding-left:24px;padding-right:24px}}
+
+.brand-logo{
+  width:54px;
+  height:54px;
+  border-radius:16px;
+  object-fit:cover;
+  box-shadow:0 0 28px rgba(139,92,255,.45);
+}
+.brand-icon{display:none!important;}

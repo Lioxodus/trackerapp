@@ -1,15 +1,196 @@
+
 function getPlayerName(){return localStorage.getItem('dropiq_player')||''}
 function getDisplayName(){return getPlayerName()||'Kein Account ausgewählt'}
-function searchPlayer(){const i=document.getElementById('epicSearch');const n=i&&i.value.trim()?i.value.trim():'';if(!n){alert('Bitte gib zuerst einen Epic Namen ein.');return}localStorage.setItem('dropiq_player',n);window.location.href='tracker.html'}
-function demoLogin(){const i=document.getElementById('epicSearch');const typed=i&&i.value.trim()?i.value.trim():'';const current=typed||getPlayerName();localStorage.setItem('dropiq_logged_in','true');if(current)localStorage.setItem('dropiq_player',current);renderAll()}
-function demoLogout(){localStorage.removeItem('dropiq_logged_in');localStorage.removeItem('dropiq_pro');renderAll()}
-function demoPro(){localStorage.setItem('dropiq_logged_in','true');localStorage.setItem('dropiq_pro','true');renderAll()}
+
+function searchPlayer(){
+  const input=document.getElementById('epicSearch');
+  const name=input && input.value.trim() ? input.value.trim() : '';
+  if(!name){ alert('Bitte gib zuerst einen Epic Namen ein.'); return; }
+  localStorage.setItem('dropiq_player', name);
+  window.location.href='tracker.html';
+}
+
+function demoLogin(){
+  const input=document.getElementById('epicSearch');
+  const typed=input && input.value.trim() ? input.value.trim() : '';
+  const current=typed || getPlayerName();
+  localStorage.setItem('dropiq_logged_in','true');
+  if(current) localStorage.setItem('dropiq_player', current);
+  renderAll();
+}
+
+function demoLogout(){
+  localStorage.removeItem('dropiq_logged_in');
+  localStorage.removeItem('dropiq_pro');
+  renderAll();
+}
+
+function demoPro(){
+  localStorage.setItem('dropiq_logged_in','true');
+  localStorage.setItem('dropiq_pro','true');
+  renderAll();
+}
+
+function clearDemoPlayer(){
+  localStorage.removeItem('dropiq_player');
+  renderAll();
+}
+
 function isLoggedIn(){return localStorage.getItem('dropiq_logged_in')==='true'}
 function isPro(){return localStorage.getItem('dropiq_pro')==='true'}
-function renderAccountArea(){const a=document.getElementById('accountArea');if(!a)return;a.innerHTML=isLoggedIn()?`<a href="profile.html">Mein Profil</a>`:`<button onclick="demoLogin()">Anmelden</button>`}
-function renderTrackerName(){const t=document.getElementById('searchedName');const noGate=document.getElementById('noPlayerGate');const content=document.getElementById('publicStatsContent');const name=getPlayerName();if(!t)return;if(!name){t.textContent='Spieler suchen';if(content)content.style.display='none';if(noGate){noGate.style.display='block';noGate.innerHTML=`<span class="badge locked">NOCH KEIN SPIELER</span><h2>Kein Epic Name gesucht</h2><p>Auf dieser Seite werden erst Stats angezeigt, wenn du auf der Startseite oder oben im Suchfeld einen Epic Namen eingibst.</p>`}return}t.textContent=name;if(content)content.style.display='block';if(noGate)noGate.style.display='none'}
-function renderImproveGate(){const g=document.getElementById('improveGate');if(!g)return;if(!isLoggedIn()){g.innerHTML=`<div class="gate-box"><span class="badge locked">LOGIN ERFORDERLICH</span><h2>Verbesserungsinfos sind gesperrt</h2><p>Du kannst öffentliche Stats ohne Login sehen. Für persönliche Schwächen, Trainingsplan und Verbesserung musst du mit deinem Epic Account angemeldet sein.</p><div class="gate-actions"><button class="primary" onclick="demoLogin()">Mit Epic anmelden</button><a class="secondary" href="tracker.html">Nur Stats ansehen</a></div></div>`;return}const name=getDisplayName();g.innerHTML=`<div class="profile-box"><div class="avatar">${name.charAt(0).toUpperCase()}</div><div class="profile-meta"><p class="tag">VERBUNDENER ACCOUNT</p><h2>${name}</h2><span>Epic Account verbunden · Free Analyse aktiv</span></div><div class="profile-status"><span class="badge free">FREE</span></div></div><div class="analysis-grid"><div class="panel"><div class="panel-head"><h2>Performance Bereiche</h2><span class="badge free">FREE</span></div><div class="skill"><div class="skill-head"><span>Aim</span><b>82%</b></div><div class="bar"><i style="width:82%"></i></div></div><div class="skill"><div class="skill-head"><span>Build/Edit</span><b>71%</b></div><div class="bar"><i style="width:71%"></i></div></div><div class="skill"><div class="skill-head"><span>Rotation</span><b>64%</b></div><div class="bar"><i style="width:64%"></i></div></div><div class="skill"><div class="skill-head"><span>Endgame</span><b>48%</b></div><div class="bar"><i style="width:48%"></i></div></div></div><div class="panel"><div class="panel-head"><h2>Was du verbessern solltest</h2><span class="badge free">FREE</span></div><div class="notice bad"><b>Endgame</b><p>Du kommst oft weit, gewinnst aber zu wenig Top-10-Runden.</p></div><div class="notice warn"><b>Rotation</b><p>Du rotierst teilweise zu spät und wirst dadurch unnötig unter Druck gesetzt.</p></div><div class="notice good"><b>Fights</b><p>Deine K/D entwickelt sich positiv. Arbeite jetzt an besseren Entscheidungen.</p></div></div></div>`}
-function renderProfileGate(){const g=document.getElementById('profileGate');if(!g)return;if(!isLoggedIn()){g.innerHTML=`<div class="gate-box"><span class="badge locked">NICHT ANGEMELDET</span><h2>Kein Profil verfügbar</h2><p>Melde dich an, um dein DropIQ Profil zu sehen.</p><div class="gate-actions"><button class="primary" onclick="demoLogin()">Mit Epic anmelden</button></div></div>`;return}const name=getDisplayName();g.innerHTML=`<div class="profile-box"><div class="avatar">${name.charAt(0).toUpperCase()}</div><div class="profile-meta"><p class="tag">MEIN PROFIL</p><h2>${name}</h2><span>Epic Account verbunden · ${isPro()?'DropIQ Pro aktiv':'Free Account'}</span></div><div class="profile-status"><span class="badge ${isPro()?'premium-badge':'free'}">${isPro()?'PRO':'FREE'}</span><div class="gate-actions"><button class="secondary" onclick="demoLogout()">Abmelden</button></div></div></div><section class="cards" style="margin-top:24px"><article class="card"><h3>📊 Stats</h3><p>Deine öffentlichen Fortnite Stats werden im Tracker angezeigt.</p></article><article class="card"><h3>🧠 Verbesserung</h3><p>Persönliche Analyse ist mit Login verfügbar.</p></article><article class="card premium"><h3>🤖 Replay AI</h3><p>${isPro()?'Pro aktiv: Upload Demo verfügbar.':'Pro nötig für Videoanalyse.'}</p></article></section>`}
-function renderReplayGate(){const g=document.getElementById('replayGate');if(!g)return;if(!isLoggedIn()){g.innerHTML=`<div class="gate-box"><span class="badge locked">LOGIN ERFORDERLICH</span><h2>Replay einschicken gesperrt</h2><p>Du musst zuerst mit deinem Epic Account angemeldet sein, bevor du ein Replay oder Video einschicken kannst.</p><div class="gate-actions"><button class="primary" onclick="demoLogin()">Mit Epic anmelden</button></div></div>`;return}if(!isPro()){g.innerHTML=`<div class="gate-box"><span class="badge premium-badge">ABO ERFORDERLICH</span><h2>KI-Videoanalyse ist nur mit Pro nutzbar</h2><p>Du bist angemeldet. Für Replay AI brauchst du später ein Abo. Die normale Verbesserungsanalyse bleibt kostenlos.</p><div class="gate-actions"><button class="primary" onclick="demoPro()">Pro Demo aktivieren</button><a class="secondary" href="pricing.html">Abo Vorteile ansehen</a></div></div>`;return}g.innerHTML=`<div class="gate-box"><span class="badge premium-badge">PRO AKTIV</span><h2>Replay Upload bereit</h2><p>Demo-Zustand: Hier würde später der echte Upload für Fortnite-Wiederholungen oder Videos stehen.</p><div class="upload-box"><strong>Replay oder Video hochladen</strong><span>Datei hier ablegen oder auswählen · Demo</span></div></div>`}
-function renderAll(){renderAccountArea();renderTrackerName();renderImproveGate();renderProfileGate();renderReplayGate()}
-document.addEventListener('DOMContentLoaded',renderAll);
+
+function renderAccountArea(){
+  const area=document.getElementById('accountArea');
+  if(!area)return;
+  area.innerHTML=isLoggedIn()
+    ? `<a href="profile.html">Mein Profil</a>`
+    : `<button onclick="demoLogin()">Anmelden</button>`;
+}
+
+function renderTracker(){
+  const title=document.getElementById('searchedName');
+  const noGate=document.getElementById('noPlayerGate');
+  const content=document.getElementById('publicStatsContent');
+  const name=getPlayerName();
+  if(!title)return;
+
+  if(!name){
+    title.textContent='Spieler suchen';
+    if(content) content.style.display='none';
+    if(noGate){
+      noGate.style.display='block';
+      noGate.innerHTML=`
+        <span class="badge locked">NOCH KEIN SPIELER</span>
+        <h2>Kein Epic Name gesucht</h2>
+        <p>Auf dieser Seite werden erst Stats angezeigt, wenn du auf der Startseite oder oben im Suchfeld einen Epic Namen eingibst.</p>
+      `;
+    }
+    return;
+  }
+
+  title.textContent=name;
+  if(content) content.style.display='block';
+  if(noGate) noGate.style.display='none';
+}
+
+function renderImproveGate(){
+  const gate=document.getElementById('improveGate');
+  if(!gate)return;
+  if(!isLoggedIn()){
+    gate.innerHTML=`
+      <div class="gate-box">
+        <span class="badge locked">LOGIN ERFORDERLICH</span>
+        <h2>Verbesserungsinfos sind gesperrt</h2>
+        <p>Du kannst öffentliche Stats ohne Login sehen. Für persönliche Schwächen, Trainingsplan und Verbesserung musst du mit deinem Epic Account angemeldet sein.</p>
+        <div class="gate-actions">
+          <button class="primary" onclick="demoLogin()">Mit Epic anmelden</button>
+          <a class="secondary" href="tracker.html">Nur Stats ansehen</a>
+        </div>
+      </div>`;
+    return;
+  }
+  const name=getDisplayName();
+  gate.innerHTML=`
+    <div class="profile-box">
+      <div class="avatar">${name.charAt(0).toUpperCase()}</div>
+      <div class="profile-meta">
+        <p class="tag">VERBUNDENER ACCOUNT</p>
+        <h2>${name}</h2>
+        <span>Epic Account verbunden · Free Analyse aktiv</span>
+      </div>
+      <div class="profile-status"><span class="badge free">FREE</span></div>
+    </div>
+    <div class="analysis-grid">
+      <div class="panel">
+        <div class="panel-head"><h2>Performance Bereiche</h2><span class="badge free">FREE</span></div>
+        <div class="skill"><div class="skill-head"><span>Aim</span><b>82%</b></div><div class="bar"><i style="width:82%"></i></div></div>
+        <div class="skill"><div class="skill-head"><span>Build/Edit</span><b>71%</b></div><div class="bar"><i style="width:71%"></i></div></div>
+        <div class="skill"><div class="skill-head"><span>Rotation</span><b>64%</b></div><div class="bar"><i style="width:64%"></i></div></div>
+        <div class="skill"><div class="skill-head"><span>Endgame</span><b>48%</b></div><div class="bar"><i style="width:48%"></i></div></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h2>Was du verbessern solltest</h2><span class="badge free">FREE</span></div>
+        <div class="notice bad"><b>Endgame</b><p>Du kommst oft weit, gewinnst aber zu wenig Top-10-Runden.</p></div>
+        <div class="notice warn"><b>Rotation</b><p>Du rotierst teilweise zu spät und wirst dadurch unnötig unter Druck gesetzt.</p></div>
+        <div class="notice good"><b>Fights</b><p>Deine K/D entwickelt sich positiv. Arbeite jetzt an besseren Entscheidungen.</p></div>
+      </div>
+    </div>`;
+}
+
+function renderProfileGate(){
+  const gate=document.getElementById('profileGate');
+  if(!gate)return;
+  if(!isLoggedIn()){
+    gate.innerHTML=`
+      <div class="gate-box">
+        <span class="badge locked">NICHT ANGEMELDET</span>
+        <h2>Kein Profil verfügbar</h2>
+        <p>Melde dich an, um dein DropIQ Profil zu sehen.</p>
+        <div class="gate-actions"><button class="primary" onclick="demoLogin()">Mit Epic anmelden</button></div>
+      </div>`;
+    return;
+  }
+  const name=getDisplayName();
+  gate.innerHTML=`
+    <div class="profile-box">
+      <div class="avatar">${name.charAt(0).toUpperCase()}</div>
+      <div class="profile-meta">
+        <p class="tag">MEIN PROFIL</p>
+        <h2>${name}</h2>
+        <span>Epic Account verbunden · ${isPro()?'DropIQ Pro aktiv':'Free Account'}</span>
+      </div>
+      <div class="profile-status">
+        <span class="badge ${isPro()?'premium-badge':'free'}">${isPro()?'PRO':'FREE'}</span>
+        <div class="gate-actions"><button class="secondary" onclick="demoLogout()">Abmelden</button></div>
+      </div>
+    </div>
+    <section class="cards" style="margin-top:24px">
+      <article class="card"><h3>📊 Stats</h3><p>Deine öffentlichen Fortnite Stats werden im Tracker angezeigt.</p></article>
+      <article class="card"><h3>🧠 Verbesserung</h3><p>Persönliche Analyse ist mit Login verfügbar.</p></article>
+      <article class="card premium"><h3>🤖 Replay AI</h3><p>${isPro()?'Pro aktiv: Upload Demo verfügbar.':'Pro nötig für Videoanalyse.'}</p></article>
+    </section>`;
+}
+
+function renderReplayGate(){
+  const gate=document.getElementById('replayGate');
+  if(!gate)return;
+  if(!isLoggedIn()){
+    gate.innerHTML=`
+      <div class="gate-box">
+        <span class="badge locked">LOGIN ERFORDERLICH</span>
+        <h2>Replay einschicken gesperrt</h2>
+        <p>Du musst zuerst mit deinem Epic Account angemeldet sein, bevor du ein Replay oder Video einschicken kannst.</p>
+        <div class="gate-actions"><button class="primary" onclick="demoLogin()">Mit Epic anmelden</button></div>
+      </div>`;
+    return;
+  }
+  if(!isPro()){
+    gate.innerHTML=`
+      <div class="gate-box">
+        <span class="badge premium-badge">ABO ERFORDERLICH</span>
+        <h2>KI-Videoanalyse ist nur mit Pro nutzbar</h2>
+        <p>Du bist angemeldet. Für Replay AI brauchst du später ein Abo. Die normale Verbesserungsanalyse bleibt kostenlos.</p>
+        <div class="gate-actions">
+          <button class="primary" onclick="demoPro()">Pro Demo aktivieren</button>
+          <a class="secondary" href="pricing.html">Abo Vorteile ansehen</a>
+        </div>
+      </div>`;
+    return;
+  }
+  gate.innerHTML=`
+    <div class="gate-box">
+      <span class="badge premium-badge">PRO AKTIV</span>
+      <h2>Replay Upload bereit</h2>
+      <p>Demo-Zustand: Hier würde später der echte Upload für Fortnite-Wiederholungen oder Videos stehen.</p>
+      <div class="upload-box"><strong>Replay oder Video hochladen</strong><span>Datei hier ablegen oder auswählen · Demo</span></div>
+    </div>`;
+}
+
+function renderAll(){
+  renderAccountArea();
+  renderTracker();
+  renderImproveGate();
+  renderProfileGate();
+  renderReplayGate();
+}
+document.addEventListener('DOMContentLoaded', renderAll);
