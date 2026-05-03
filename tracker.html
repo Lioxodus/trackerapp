@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="de"><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><link rel='stylesheet' href='style.css'><title>DropIQ | Tracker</title></head><body>
+
+<header class="header">
+  <a href="index.html" class="brand"><div class="brand-icon">D</div><div><strong>DropIQ</strong><span>Public Stats</span></div></a>
+  <nav><a class='' href='index.html'>Start</a><a class='active' href='tracker.html'>Tracker</a><a class='' href='improve.html'>Verbessern</a><a class='' href='replay-ai.html'>Replay AI</a><a class='' href='pricing.html'>Abo</a></nav>
+  <div class="account-area" id="accountArea"></div>
+</header>
+
+<main class="page">
+<section class="page-hero">
+ <div><p class="tag">PUBLIC PLAYER STATS</p><h1 id="searchedName">FelixFN</h1><p>Diese Seite zeigt nur öffentliche Basis-Stats. Persönliche Verbesserung gibt es erst nach Epic Login.</p></div>
+ <div class="small-search"><input id="epicSearch" placeholder="Epic Name suchen"><button onclick="searchPlayer()">Suchen</button></div>
+</section>
+<div class="section-head"><h2>Battle Royale Stats</h2><span class="badge free">Ohne Login sichtbar</span></div>
+<section class="stats-grid">
+ <div class="stat"><span>Solo Siege</span><b>18</b><small>Public</small></div>
+ <div class="stat"><span>Duo Siege</span><b>31</b><small>Public</small></div>
+ <div class="stat"><span>Squad Siege</span><b>44</b><small>Public</small></div>
+ <div class="stat"><span>Gesamt Siege</span><b>93</b><small>Public</small></div>
+ <div class="stat"><span>K/D</span><b>2.18</b><small>Public</small></div>
+ <div class="stat"><span>Winrate</span><b>9.4%</b><small>Public</small></div>
+</section>
+<section class="grid2">
+ <div class="panel"><div class="panel-head"><h2>Competitive Übersicht</h2><span class="badge free">Public</span></div>
+  <div class="table"><div><span>Gespielte Cups</span><b>14</b></div><div><span>Beste Platzierung</span><b>Top 8%</b></div><div><span>Ø Punkte pro Cup</span><b>186</b></div><div><span>Letzter Cup</span><b>Performance Cup</b></div></div>
+ </div>
+ <div class="panel locked-panel"><span class="badge locked">LOGIN ERFORDERLICH</span><h2>Verbesserungsanalyse gesperrt</h2><p>Um zu sehen, wo du schlecht bist und was du verbessern musst, musst du mit deinem Epic Account angemeldet sein.</p><button onclick="demoLogin()">Mit Epic anmelden</button></div>
+</section>
+</main><script src="script.js"></script></body></html>
