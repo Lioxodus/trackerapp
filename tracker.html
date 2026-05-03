@@ -8,10 +8,10 @@
 
 <main class="page">
 <section class="page-hero">
- <div><p class="tag">PUBLIC PLAYER STATS</p><h1 id="searchedName">FelixFN</h1><p>Diese Seite zeigt nur öffentliche Basis-Stats. Persönliche Verbesserung gibt es erst nach Epic Login.</p></div>
+ <div><p class="tag">PUBLIC PLAYER STATS</p><h1 id="searchedName">Spieler suchen</h1><p>Gib zuerst einen Epic Namen ein, um öffentliche Stats zu sehen.</p></div>
  <div class="small-search"><input id="epicSearch" placeholder="Epic Name suchen"><button onclick="searchPlayer()">Suchen</button></div>
 </section>
-<div class="section-head"><h2>Battle Royale Stats</h2><span class="badge free">Ohne Login sichtbar</span></div>
+<section id="noPlayerGate" class="gate-box"></section><div id="publicStatsContent"><div class="section-head"><h2>Battle Royale Stats</h2><span class="badge free">Ohne Login sichtbar</span></div>
 <section class="stats-grid">
  <div class="stat"><span>Solo Siege</span><b>18</b><small>Public</small></div>
  <div class="stat"><span>Duo Siege</span><b>31</b><small>Public</small></div>
@@ -26,4 +26,5 @@
  </div>
  <div class="panel locked-panel"><span class="badge locked">LOGIN ERFORDERLICH</span><h2>Verbesserungsanalyse gesperrt</h2><p>Um zu sehen, wo du schlecht bist und was du verbessern musst, musst du mit deinem Epic Account angemeldet sein.</p><button onclick="demoLogin()">Mit Epic anmelden</button></div>
 </section>
+</div>
 </main><script src="script.js"></script></body></html>
